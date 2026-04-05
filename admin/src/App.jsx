@@ -18,7 +18,7 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem('adminToken'));
 
   return (
-    <Router basename="/admin">
+    <Router>
       <Routes>
         <Route path="/login" element={token ? <Navigate to="/" /> : <Login setToken={setToken} />} />
         
