@@ -4,10 +4,8 @@ export const uploadImage = (req, res) => {
       return res.status(400).json({ message: 'Aucun fichier téléchargé' });
     }
     
-    // Return the relative path to be stored in the database
-    // The frontend should prepend the backend URL if needed, 
-    // but usually it's better to store it relative to the uploads folder or root.
-    const filePath = `/uploads/${req.file.filename}`;
+    // The file path is now the absolute Cloudinary URL provided by multer-storage-cloudinary
+    const filePath = req.file.path;
     res.status(200).json({ 
       message: 'Téléchargement réussi', 
       filePath: filePath 
