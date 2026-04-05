@@ -67,7 +67,7 @@ const Hero = ({ data }) => {
           
           <div className="relative z-10 overflow-hidden rounded-[1.5rem] bg-zinc-900 aspect-[4/5] shadow-2xl">
             <img 
-              src={data.image?.startsWith('/uploads') ? `http://localhost:5000${data.image}` : (data.image || chakImg)} 
+              src={data.image?.startsWith('/uploads') ? `${import.meta.env.VITE_API_URL.replace('/api', '')}${data.image}` : (data.image || chakImg)} 
               alt={data.name || 'Mohamed Chakroun'} 
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-110 hover:scale-100"
             />

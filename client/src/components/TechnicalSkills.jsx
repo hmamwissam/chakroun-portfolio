@@ -23,7 +23,7 @@ const TechnicalSkills = ({ skills, projects }) => {
 
   const getImageUrl = (path) => {
     if (!path) return '';
-    return path.startsWith('/uploads') ? `http://localhost:5000${path}` : path;
+    return path.startsWith('/uploads') ? `${import.meta.env.VITE_API_URL.replace('/api', '')}${path}` : path;
   };
 
   return (

@@ -61,7 +61,7 @@ const ParcoursJCI = ({ roles }) => {
                   {role.image && (
                     <div className="mt-4 h-24 overflow-hidden rounded-xl border border-zinc-900">
                       <img 
-                        src={role.image.startsWith('/uploads') ? `http://localhost:5000${role.image}` : role.image} 
+                        src={role.image.startsWith('/uploads') ? `${import.meta.env.VITE_API_URL.replace('/api', '')}${role.image}` : role.image} 
                         alt={role.title}
                         className="w-full h-full object-cover grayscale opacity-50 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all duration-700"
                       />

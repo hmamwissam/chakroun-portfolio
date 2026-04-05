@@ -30,7 +30,7 @@ const ImageUpload = ({ value, onChange, label, className = "" }) => {
     if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
-  const backendUrl = 'http://localhost:5000'; // Define based on environment if needed
+  const backendUrl = import.meta.env.VITE_API_URL.replace('/api', ''); // Define based on environment if needed
 
   return (
     <div className={`space-y-2 ${className}`}>
