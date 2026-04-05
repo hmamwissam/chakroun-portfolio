@@ -15,8 +15,12 @@ import messageRoutes from './routes/messageRoutes.js';
 import quoteRoutes from './routes/quoteRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import connectCloudinary from './config/cloudinary.js';
 
 dotenv.config();
+
+// Connect to Cloudinary
+connectCloudinary();
 
 const app = express();
 
@@ -49,6 +53,15 @@ app.use('/api/upload', uploadRoutes);
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
+
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({
+    message: err.message || 'Internal Server Error',
+    error: process.env.NODE_ENV === 'development' ? err : {}
+  });
+});
 
 const PORT = process.env.PORT || 5000;
 
