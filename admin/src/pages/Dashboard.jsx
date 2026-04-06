@@ -70,7 +70,7 @@ const Dashboard = () => {
           <p className="text-zinc-500 text-sm">Votre portfolio public est actuellement synchronisé avec cette base de données.</p>
         </div>
         <a 
-          href="http://localhost:5173" 
+          href="https://chakroun-portfolio-client.vercel.app/" 
           target="_blank" 
           rel="noopener noreferrer"
           className="bg-white text-black px-8 py-4 rounded-2xl font-black flex items-center gap-3 hover:bg-zinc-200 transition-all hover:scale-105 active:scale-95 text-sm"
