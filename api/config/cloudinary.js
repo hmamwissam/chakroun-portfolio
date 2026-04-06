@@ -6,21 +6,33 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config({ path: path.join(__dirname, '../.env') });
+dotenv.config();
 
 const connectCloudinary = async () => {
-    // Add logs to verify these are being loaded
-    console.log('Cloudinary Config Loading...');
-    console.log('Name:', process.env.CLOUDINARY_NAME ? 'Loaded' : 'Missing');
-    console.log('Key:', process.env.CLOUDINARY_API_KEY ? 'Loaded' : 'Missing');
-    console.log('Secret:', process.env.CLOUDINARY_SECRET_KEY ? 'Loaded' : 'Missing');
+    const name = process.env.CLOUDINARY_NAME;
+    const key = process.env.CLOUDINARY_API_KEY;
+    const secret = process.env.CLOUDINARY_SECRET_KEY;
 
-    cloudinary.config({
-        cloud_name: process.env.CLOUDINARY_NAME,
-        api_key: process.env.CLOUDINARY_API_KEY,
-        api_secret: process.env.CLOUDINARY_SECRET_KEY
-    });
+    console.log('--- Cloudinary Configuration Check ---');
+    console.log('CLOUDINARY_NAME:', name ? 'FOUND' : 'MISSING ❌');
+    console.log('CLOUDINARY_API_KEY:', key ? 'FOUND' : 'MISSING ❌');
+    console.log('CLOUDINARY_SECRET_KEY:', secret ? 'FOUND' : 'MISSING ❌');
+
+    if (!name || !key || !secret) {
+        console.error('CRITICAL: Cloudinary credentials missing. Uploads will fail!');
+        return;
+    }
+
+    try {
+        cloudinary.config({
+            cloud_name: name,
+            api_key: key,
+            api_secret: secret
+        });
+        console.log('Cloudinary Configured Successfully ✅');
+    } catch (error) {
+        console.error('Cloudinary Configuration Error:', error.message);
+    }
 };
 
 export default connectCloudinary;
-// Trigger restart

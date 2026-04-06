@@ -1,1 +1,12 @@
-# Fix Image Upload - Cloudinary Fallback to Local Storage\n\nStatus: Plan approved, implementing...\n\n## Steps:\n\n### 1. Create this TODO.md [DONE]\n### 2. Update `api/controllers/uploadController.js` with fallback logic [PENDING]\n  - Try Cloudinary primary\n  - Fallback: save to `api/uploads/` permanent, return `/uploads/filename`\n  - Cleanup temp files\n  - Log fallback use\n### 3. Restart API server [PENDING]\n  ```bash\n  cd api\n  npm start\n  ```\n### 4. Test in admin panel [PENDING]\n  - Upload image in HeroEditor etc.\n  - Verify displays with local URL\n### 5. Check logs [PENDING]\n  ```bash\n  tail -f api/upload_debug.log\n  ```\n### 6. Fix Cloudinary separately [PENDING]\n  - Login cloudinary.com/console/global → search dkdhmgye1\n  - Check account status, limits, regenerate API key/secret if invalid\n  - Update `api/.env` → restart\n\n**Expected Result:** Uploads work immediately with local storage (https://localhost:5000/uploads/filename.png), Cloudinary optional later.\n\nUpdated: $(date)
+# Original State Restored - Local Fallback Active
+
+All changes reverted. Current behavior:
+- Cloudinary attempt → 403 fail → local `api/uploads/` fallback → Mongo URI `/uploads/filename`
+- Works locally but disappears on Vercel redeploy (ephemeral FS)
+
+**To Fix Disappearing Images PERMANENTLY:**
+1. Fix Cloudinary 403: https://cloudinary.com/console → dkdhmgye1 → Regenerate API Key/Secret
+2. Update `api/.env` & Vercel env vars
+3. Test `cd api && npm start` → look for no 403 logs
+
+Run `cd api && npm start` to confirm restoration.

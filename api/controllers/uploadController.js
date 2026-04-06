@@ -44,31 +44,14 @@ export const uploadImage = async (req, res) => {
   } catch (err) {
     console.error('[Controller] Cloudinary Upload FAILED:', err.message);
     
-    // Fallback: Save to local storage
-    try {
-      const timestamp = Date.now();
-      const originalName = req.file.originalname || 'image.png';
-      const ext = path.extname(originalName);
-      const filename = `upload-${timestamp}${ext || '.png'}`;
-      const uploadDir = path.join(process.cwd(), 'uploads');
-      const uploadPath = path.join(uploadDir, filename);
-      
-      await fs.mkdir(uploadDir, { recursive: true });
-      await fs.writeFile(uploadPath, req.file.buffer);
-      
-      console.log(`[FALLBACK SUCCESS] Local upload: /uploads/${filename}`);
-      
-      res.status(200).json({
-        message: 'Upload successful (Cloudinary unavailable, using local storage)',
-        filePath: `/uploads/${filename}`,
-        storage: 'local'
-      });
-    } catch (fallbackErr) {
-      console.error('[FALLBACK FAILED]:', fallbackErr.message);
-      res.status(500).json({ 
-        message: 'Upload failed (both Cloudinary and local)',
-        error: fallbackErr.message 
-      });
-    }
+    // Check if configuration is missing
+    const isConfigMissing = !process.env.CLOUDINARY_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_SECRET_KEY;
+    
+    res.status(500).json({ 
+      message: 'Upload to Cloudinary failed. Check server environment variables.',
+      error: err.message,
+      configMissing: isConfigMissing,
+      help: "Please ensure CLOUDINARY_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_SECRET_KEY are set in your hosting provider's (Vercel/Render) dashboard."
+    });
   }
 };
