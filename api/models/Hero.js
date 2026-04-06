@@ -10,7 +10,7 @@ const HeroSchema = new mongoose.Schema({
   btnPrimaryHref: { type: String, default: '#engineering' },
   btnSecondaryLabel: { type: String, default: 'LEADERSHIP' },
   btnSecondaryHref: { type: String, default: '#training' },
-  image: { type: String, default: '/uploads/default-hero.png' },
+  image: { type: String, default: '' },
 });
 
 export default mongoose.model('Hero', HeroSchema);

@@ -30,8 +30,6 @@ const ImageUpload = ({ value, onChange, label, className = "" }) => {
     if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
-  const backendUrl = import.meta.env.VITE_API_URL.replace('/api', ''); // Define based on environment if needed
-
   return (
     <div className={`space-y-2 ${className}`}>
       {label && <label className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest ml-1">{label}</label>}
@@ -40,7 +38,7 @@ const ImageUpload = ({ value, onChange, label, className = "" }) => {
         {value ? (
           <div className="relative w-full aspect-video md:aspect-square bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden group">
             <img 
-              src={value.startsWith('/uploads') ? `${backendUrl}${value}` : value} 
+              src={value} 
               alt="Uploaded" 
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             />
