@@ -40,4 +40,8 @@ export const contactInfo = {
   get: () => API.get('/contact'),
 };
 
+export const portfolio = {
+  bootstrap: () => API.get('/portfolio/bootstrap'),
+};
+
 export default API;

@@ -1,0 +1,546 @@
+{
+  "hero": {
+    "name": "CHAKROUN MOHAMED",
+    "badge": "Precision & Leadership",
+    "tagline": "Ingénieur mécanique, doté d’excellentes compétences en communication et d’une grande capacité d’adaptation. Passionné par le travail en équipe et motivé par l’atteinte d’objectifs collectifs.",
+    "statValue": "50+",
+    "statLabel": "Formations Animées",
+    "btnPrimaryLabel": "DÉCOUVRIR LE GÉNIE",
+    "btnPrimaryHref": "#engineering",
+    "btnSecondaryLabel": "PARCOURS JCI",
+    "btnSecondaryHref": "#training"
+  },
+  "skills": [
+    {
+      "name": "SolidWorks",
+      "category": "CFAO",
+      "type": "hard",
+      "order": 0,
+      "_id": "69be080727ecc4832eac3ebe"
+    },
+    {
+      "name": "Catia",
+      "category": "CFAO",
+      "type": "hard",
+      "order": 1,
+      "_id": "69be080727ecc4832eac3ebf"
+    },
+    {
+      "name": "NX",
+      "category": "CFAO",
+      "type": "hard",
+      "order": 2,
+      "_id": "69be080727ecc4832eac3ec0"
+    },
+    {
+      "name": "Master-cam",
+      "category": "CFAO",
+      "type": "hard",
+      "order": 3,
+      "_id": "69be080727ecc4832eac3ec1"
+    },
+    {
+      "name": "Python",
+      "category": "Programmation",
+      "type": "hard",
+      "order": 4,
+      "_id": "69be080727ecc4832eac3ec2"
+    },
+    {
+      "name": "C++",
+      "category": "Programmation",
+      "type": "hard",
+      "order": 5,
+      "_id": "69be080727ecc4832eac3ec3"
+    },
+    {
+      "name": "Leadership",
+      "category": "Soft Skills",
+      "type": "soft",
+      "icon": "Users",
+      "order": 0,
+      "_id": "69be080727ecc4832eac3ec4"
+    },
+    {
+      "name": "Conférencier",
+      "category": "Soft Skills",
+      "type": "soft",
+      "icon": "Cpu",
+      "order": 1,
+      "_id": "69be080727ecc4832eac3ec5"
+    },
+    {
+      "name": "Communication",
+      "category": "Soft Skills",
+      "type": "soft",
+      "icon": "Cpu",
+      "order": 2,
+      "_id": "69be080727ecc4832eac3ec6"
+    },
+    {
+      "name": "Adaptabilité",
+      "category": "Soft Skills",
+      "type": "soft",
+      "icon": "Shield",
+      "order": 3,
+      "_id": "69be080727ecc4832eac3ec7"
+    },
+    {
+      "name": "Travail en équipe",
+      "category": "Soft Skills",
+      "type": "soft",
+      "icon": "Users",
+      "order": 4,
+      "_id": "69be080727ecc4832eac3ec8"
+    },
+    {
+      "name": "Objectifs collectifs",
+      "category": "Soft Skills",
+      "type": "soft",
+      "icon": "Layout",
+      "order": 5,
+      "_id": "69be080727ecc4832eac3ec9"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Vireur de Soudure",
+      "desc": "Maintenir et faire pivoter des gaines métallique durant le soudage avec sécurité et précision.",
+      "tags": [
+        "Soudage",
+        "Précision",
+        "Mécanique"
+      ],
+      "icon": "Settings",
+      "image": "/uploads/image-1774516527211-537489588.jpg",
+      "order": 0,
+      "_id": "69be080727ecc4832eac3eca",
+      "images": [
+        "/uploads/image-1774516530425-973800452.jpg"
+      ]
+    },
+    {
+      "title": "Machine d'injection Résine",
+      "desc": "Amélioration et conception d’une machine d’injection de résine d’un siège auto pour SPARCO.",
+      "tags": [
+        "SPARCO",
+        "RDM",
+        "Automate"
+      ],
+      "icon": "Cpu",
+      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+      "order": 1,
+      "_id": "69be080727ecc4832eac3ecb"
+    },
+    {
+      "title": "Chariot d'Atelier",
+      "desc": "Conception complète pour faciliter le déplacement des pièces et l'organisation de l'atelier.",
+      "tags": [
+        "Ergonomie",
+        "Organisation"
+      ],
+      "icon": "Layout",
+      "image": "/uploads/image-1774516205822-889537071.jpg",
+      "order": 2,
+      "_id": "69be080727ecc4832eac3ecc",
+      "images": [
+        "/uploads/image-1774516208832-109252819.jpg"
+      ]
+    },
+    {
+      "title": "Conception d’une armoire à outils réalisée sur SolidWorks en mode tôlerie.",
+      "desc": "Ce projet a consisté à modéliser l’armoire existante puis à proposer une version améliorée, intégrant :\n - un support d’outils,\n - un bras pour l’attirance,\n - un support de bouteille,\n - et des roues pour le déplacement.",
+      "tags": [],
+      "icon": "Cpu",
+      "image": "/uploads/image-1774515331837-395947026.jpg",
+      "images": [
+        "/uploads/image-1774515344392-31348567.jpg",
+        "/uploads/image-1774515355492-993294904.jpg",
+        "/uploads/image-1774515364865-769565129.jpg",
+        "/uploads/image-1774515368607-811317081.jpg",
+        "/uploads/image-1774515374184-86102976.jpg",
+        "/uploads/image-1774515378170-10975344.jpg",
+        "/uploads/image-1774515392215-78457833.jpg"
+      ],
+      "order": 4,
+      "_id": "69c4f4c53378c79455bb701a"
+    },
+    {
+      "title": "Modélisation surfacique avancée sous SolidWorks",
+      "desc": "Voici un aperçu d’un projet réalisé entièrement en mode Surfacing sur SolidWorks : la modélisation d’une coque de kayak.\n\n Ce type de conception demande une parfaite maîtrise des outils de surfaces complexes, tels que :\n\nLes loft surfaces pour la forme fluide de la coque,\nLes boundary surfaces pour les transitions douces,\nLes trim et knit surfaces pour l’assemblage précis\n\nEt enfin, la conversion en solide 3D pour la validation et la préparation à la fabrication.\n\nL’objectif : obtenir une forme hydrodynamique, légère et esthétique, tout en conservant une continuité parfaite entre les surfaces.",
+      "tags": [],
+      "icon": "Settings",
+      "image": "/uploads/image-1774515758493-184868649.jpg",
+      "images": [
+        "/uploads/image-1774515764044-761241468.jpg",
+        "/uploads/image-1774515766288-73397040.jpg"
+      ],
+      "order": 5,
+      "_id": "69c4f6394d6c438c2da9ae10"
+    },
+    {
+      "title": "un modèle que j’ai conçu entièrement en mode surfacique sur SolidWorks",
+      "desc": "L’objectif de ce projet était de maîtriser la création de formes complexes et ergonomiques, typiques des produits de design industriel comme une souris d’ordinateur.\n\nGrâce à l’utilisation des surfaces, j’ai pu obtenir des transitions fluides, des courbes précises et une esthétique réaliste, tout en assurant la cohérence géométrique entre les différentes parties.\n\nCe travail illustre l’importance du design produit dans la conception mécanique moderne, où l’esthétique et la performance se rejoignent pour offrir une expérience utilisateur complète.",
+      "tags": [],
+      "icon": "Layout",
+      "image": "/uploads/image-1774515872160-148171227.jpg",
+      "images": [
+        "/uploads/image-1774515876679-244919494.jpg",
+        "/uploads/image-1774515879207-604488195.jpg"
+      ],
+      "order": 6,
+      "_id": "69c4f6aad2b28ab23fbb6415"
+    },
+    {
+      "title": "conception complète d’une poubelle 60 L",
+      "desc": "une poubelle 60 L , alliant efficacité, durabilité et optimisation des processus.\n\nObjectif : conception complète d’une poubelle pour faciliter la collection des des déchets et mettre l'atelier plus propre .\n\n Un projet passionnant mené de l’idée à la modélisation 3D !",
+      "tags": [
+        "Ergonomie",
+        "Organisation"
+      ],
+      "icon": "Layout",
+      "image": "/uploads/image-1774516109698-714463762.jpg",
+      "images": [
+        "/uploads/image-1774516115000-211892765.jpg"
+      ],
+      "order": 7,
+      "_id": "69c4f7956225f011f1d9d8ac"
+    },
+    {
+      "title": "Conception complète d’un outil de poinçonnage",
+      "desc": "un outil de poinçonnage, alliant efficacité, durabilité et optimisation des processus.\n\nObjectif : conception d'une outil de poinçonnage de diamètre 16 pour poinçonner les UPN 100 et les cornières .\n\n Un projet passionnant mené de l’idée à la modélisation 3D !\n",
+      "tags": [],
+      "icon": "Layout",
+      "image": "/uploads/image-1774516379169-303135867.jpg",
+      "images": [
+        "/uploads/image-1774516385849-358556852.jpg"
+      ],
+      "order": 8,
+      "_id": "69c4f8a3fc2ef78a3cf66f6f"
+    }
+  ],
+  "experience": [
+    {
+      "year": "janvier 2025 - présent",
+      "title": "Responsable Suivi et Co-responsable Logistique",
+      "company": "SECOMET",
+      "desc": "Gestion globale de la production et de la conformité technique.",
+      "details": [
+        "Suivi et gestion des ordres de fabrication, contrôle des matières premières.",
+        "Élaboration et optimisation des méthodes de fabrication.",
+        "Supervision du processus de fabrication et respect des délais.",
+        "Gestion de la qualité et traitement des non-conformités."
+      ],
+      "current": true,
+      "featured": true,
+      "order": 0,
+      "_id": "69be080727ecc4832eac3ece"
+    },
+    {
+      "year": "février-novembre 2024",
+      "title": "Stage PFE - Amélioration Machine",
+      "company": "SPARCO",
+      "desc": "Projet de fin d'études sur l'optimisation de l'injection résine.",
+      "details": [
+        "Amélioration et conception d'une machine d'injection de résine d'un siège auto.",
+        "Calculs RDM et programmation sur automate."
+      ],
+      "featured": true,
+      "order": 1,
+      "_id": "69be080727ecc4832eac3ecf"
+    },
+    {
+      "year": "Juin 2023",
+      "title": "Stagiaire - Conception Mécanique",
+      "company": "LPE",
+      "desc": "Immersion technique dans la CAO et la simulation RDM/FEM.",
+      "details": [
+        "Analyse des cahiers des charges et spécifications techniques.",
+        "Conception de pièces et ensembles complexes (SolidWorks, CATIA, Inventor).",
+        "Réalisation des plans de fabrication avec cotation/tolérances.",
+        "Simulations RDM et analyses par éléments finis (FEM)."
+      ],
+      "featured": true,
+      "order": 2,
+      "_id": "69be080727ecc4832eac3ed0"
+    },
+    {
+      "year": "Aout 2023",
+      "title": "Stagiaire - Production",
+      "company": "TUNICOTEX",
+      "desc": "Amélioration des procédés de production textile.",
+      "details": [
+        "Compréhension des étapes textile (filature, tissage, finition).",
+        "Assistance au contrôle des équipements de production.",
+        "Optimisation des procédés pour réduire les pertes."
+      ],
+      "featured": false,
+      "order": 3,
+      "_id": "69be080727ecc4832eac3ed1"
+    },
+    {
+      "year": "Aout 2022",
+      "title": "Stagiaire - Fabrication CNC",
+      "company": "CORAIL TECHNOLOGIE",
+      "desc": "Expertise pratique sur machines à commande numérique.",
+      "details": [
+        "Compréhension du fonctionnement des machines CNC.",
+        "Réglage et configuration des machines selon plans techniques.",
+        "Contrôle métrologique de précision (pied à coulisse, micromètre)."
+      ],
+      "featured": false,
+      "order": 4,
+      "_id": "69be080727ecc4832eac3ed2"
+    }
+  ],
+  "training": {
+    "bio": "Formateur de compétences générales depuis mars 2023. Mon parcours JCI témoigne d'un engagement constant vers l'excellence et le leadership.",
+    "featuredWorkshop": "Formateur Confirmé - Convention Nationale 2023",
+    "featuredWorkshopImage": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80",
+    "topics": [
+      "Public Speaking",
+      "Conflict Management",
+      "Negotiation",
+      "Leadership",
+      "Project Prep"
+    ],
+    "stats": [
+      {
+        "label": "Formations Animées",
+        "value": "+50",
+        "icon": "BookOpen",
+        "order": 0,
+        "_id": "69be080727ecc4832eac3ed3"
+      },
+      {
+        "label": "En Présentiel",
+        "value": "90%",
+        "icon": "Users",
+        "order": 1,
+        "_id": "69be080727ecc4832eac3ed4"
+      },
+      {
+        "label": "Membres Impactés",
+        "value": "200+",
+        "icon": "Award",
+        "order": 2,
+        "_id": "69be080727ecc4832eac3ed5"
+      }
+    ],
+    "roles": [
+      {
+        "year": "2026",
+        "title": "C.J & Conseiller Zonal HDD",
+        "sub": "OLM Fondouk Djedid / Zone A",
+        "desc": "Orientation et développement des membres au niveau zonal.",
+        "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80",
+        "order": 0
+      },
+      {
+        "year": "2025",
+        "title": "P.P.I",
+        "sub": "OLM Fondouk Djedid",
+        "desc": "Past President Immediate - Accompagnement de la nouvelle équipe.",
+        "order": 1
+      },
+      {
+        "year": "2024",
+        "title": "Président Fondateur",
+        "sub": "OLM Fondouk Djedid",
+        "desc": "Création et vision stratégique de la nouvelle organisation locale.",
+        "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80",
+        "order": 2
+      },
+      {
+        "year": "2023",
+        "title": "VPPRE",
+        "sub": "OLM Grombalia",
+        "desc": "Vice-Président Programme et Relations Extérieures.",
+        "order": 3
+      },
+      {
+        "year": "2022",
+        "title": "VPFD",
+        "sub": "OLM Grombalia",
+        "desc": "Vice-Président Formation et Développement. Meilleur membre plus remarquable Zone A.",
+        "order": 4
+      },
+      {
+        "year": "2021",
+        "title": "C.J",
+        "sub": "OLM Grombalia",
+        "desc": "Conseiller Juridique - Engagement communautaire et conformité.",
+        "order": 5
+      }
+    ],
+    "sessions": [
+      {
+        "title": "Formation  LinkedIn ",
+        "date": "February 2026",
+        "desc": "Une formation vous permettra d’optimiser votre profil, de développer votre réseau et d’attirer les bonnes opportunités professionnelles.",
+        "image": "/uploads/image-1774517041529-355986629.jpg",
+        "order": 0,
+        "_id": "69be080727ecc4832eac3edb"
+      },
+      {
+        "title": "LinkedIn ",
+        "date": "February 2026",
+        "desc": "La formation \" LinkedIn \" qui fait partie intégrante du programme de l'événement \"JOB FAIR\". 🌟 avec JCI Fondouk Djedid et JCI Soliman",
+        "image": "/uploads/image-1774517131445-575980422.jpg",
+        "order": 1,
+        "_id": "69be080727ecc4832eac3edc"
+      },
+      {
+        "title": " Formation Sponsoring ",
+        "date": "February 2026",
+        "desc": "Former, structurer et convaincre : le sponsoring est un levier clé pour la réussite des projets associatifs et entrepreneuriaux.",
+        "image": "/uploads/image-1774517246945-858716259.jpg"
+      },
+      {
+        "title": "Planification stratégique & Business Model Canvas (BMC)",
+        "date": "January 2026",
+        "desc": "Cette formation a pour objectif de :\n- renforcer les compétences en planification,\n- optimiser la réflexion stratégique,\n- maîtriser le Business Model Canvas à travers une approche pratique, interactive et orientée action.",
+        "image": "/uploads/image-1774517343050-999591034.jpg"
+      },
+      {
+        "title": "Formation en Gestion du Temps et du Stress",
+        "date": "October 2025",
+        "desc": " Former des outils concrets pour mieux équilibrer vos priorités et garder votre sérénité face aux défis du quotidien.\n",
+        "image": "/uploads/image-1774517552408-376928089.jpg"
+      },
+      {
+        "title": " Formation l’internationalisme",
+        "date": "August 2025",
+        "desc": "partager expériences, visions et outils pour penser au-delà des frontières et agir ensemble pour un monde plus connecté et collaboratif.",
+        "image": "/uploads/image-1774517719974-698349855.jpg"
+      },
+      {
+        "title": "Formation networking and relationship building",
+        "date": "August 2025",
+        "desc": "Une occasion unique pour développer vos compétences relationnelles et booster vos opportunités professionnelles !",
+        "image": "/uploads/image-1774517872003-236051313.jpg"
+      },
+      {
+        "title": "Formation La prise de parole en public",
+        "date": "May 2025",
+        "desc": "captiver votre auditoire, parler avec assurance et marquer les esprits",
+        "image": "/uploads/image-1774518008973-118302413.jpg"
+      },
+      {
+        "title": "Formation Communication efficace",
+        "date": "May 2025",
+        "desc": "découvrir comment surmonter vos doutes et cultiver une confiance durable en vous-même. Ne manquez pas cette occasion unique de transformer votre manière de penser et d'agir!",
+        "image": "/uploads/image-1774518099978-537912806.jpg"
+      },
+      {
+        "title": " Formation Sponsoring ",
+        "date": "April 2025",
+        "desc": "découvrir comment surmonter vos doutes et cultiver une confiance durable en vous-même. Ne manquez pas cette occasion unique de transformer votre manière de penser et d'agir!",
+        "image": "/uploads/image-1774518199729-844470777.jpg"
+      },
+      {
+        "title": "Formation Business Model Canvas",
+        "date": "April 2025",
+        "desc": "Une opportunité incontournable pour tous les jeunes ambitieux qui souhaitent passer de l’idée à l’action",
+        "image": "/uploads/image-1774518266966-682127356.jpg"
+      },
+      {
+        "title": " C'est quoi la JCI",
+        "date": "April 2025",
+        "desc": "Découvrir comment surmonter vos doutes et cultiver une confiance durable en vous-même. Ne manquez pas cette occasion unique de transformer votre manière de penser et d'agir!",
+        "image": "/uploads/image-1774518348570-575459349.jpg"
+      },
+      {
+        "title": "Confiance en soi ",
+        "date": "February 2025",
+        "desc": "",
+        "image": "/uploads/image-1774518413839-846559274.jpg"
+      }
+    ]
+  },
+  "education": {
+    "degrees": [
+      {
+        "title": "Cycle d’Ingénieurs - Génie Mécanique",
+        "org": "ENSIT",
+        "note": "Ecole Nationale Supérieure d’Ingénieurs de Tunis (2021 - 2024)",
+        "current": true,
+        "order": 0,
+        "_id": "69be080727ecc4832eac3edd"
+      },
+      {
+        "title": "Cycle Préparatoire (PT)",
+        "org": "IPEIN",
+        "note": "Institut Préparatoire aux Etudes d’Ingénieurs de Nabeul (2019 - 2021)",
+        "order": 1,
+        "_id": "69be080727ecc4832eac3ede"
+      },
+      {
+        "title": "Baccalauréat",
+        "org": "Lycée Grombalia",
+        "note": "Obtenu en 2019",
+        "order": 2,
+        "_id": "69be080727ecc4832eac3edf"
+      }
+    ],
+    "certs": [
+      {
+        "title": "CSWA / CSWP Solidworks 2025",
+        "org": "Dassault Systèmes",
+        "order": 0,
+        "_id": "69be080727ecc4832eac3ee0"
+      },
+      {
+        "title": "Responsable Qualité",
+        "org": "Certification (08/2023)",
+        "order": 1,
+        "_id": "69be080727ecc4832eac3ee1"
+      },
+      {
+        "title": "Industrie 4.0",
+        "org": "Technique (07/2023)",
+        "order": 2,
+        "_id": "69be080727ecc4832eac3ee2"
+      },
+      {
+        "title": "ISO 9001",
+        "org": "Management (10/2022)",
+        "order": 3,
+        "_id": "69be080727ecc4832eac3ee3"
+      },
+      {
+        "title": "Bureau Microsoft Office",
+        "org": "Productivité (04/2023)",
+        "order": 4,
+        "_id": "69be080727ecc4832eac3ee4"
+      }
+    ],
+    "languages": [
+      "Français",
+      "Anglais",
+      "Espagnol"
+    ],
+    "interests": [
+      "Taekwondo",
+      "Football",
+      "Handball",
+      "Lecture",
+      "Interaction",
+      "Voyage"
+    ]
+  },
+  "quote": {
+    "text1": "My experience as a trainer strengthens my ability to communicate technical ideas, ",
+    "highlight": "lead teams",
+    "text2": ", and manage projects effectively."
+  },
+  "contact": {
+    "email": "mohamedchakroun.ing@gmail.com",
+    "phone": "+216 55 123 875",
+    "location": "Tunisia / Remote",
+    "linkedin": "https://www.linkedin.com/in/mohamed-chakrounchak/",
+    "instagram": "https://www.instagram.com/mohamed_chakroun05/",
+    "facebook": "https://www.facebook.com/mohamed.chakroun.2005"
+  },
+  "messages": []
+}

@@ -15,6 +15,7 @@ import messageRoutes from './routes/messageRoutes.js';
 import quoteRoutes from './routes/quoteRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import portfolioRoutes from './routes/portfolioRoutes.js';
 import connectCloudinary from './config/cloudinary.js';
 
 dotenv.config();
@@ -48,6 +49,7 @@ app.use('/api/messages', messageRoutes);
 app.use('/api/quote', quoteRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/portfolio', portfolioRoutes);
 
 // DB Connection
 mongoose.connect(process.env.MONGO_URI)

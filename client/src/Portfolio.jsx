@@ -21,41 +21,37 @@ export default function Portfolio() {
     restDelta: 0.001
   });
 
-  const [data, setData] = useState({
-    hero: null,
-    skills: [],
-    projects: [],
-    experience: [],
-    training: null,
-    education: null,
-    quote: null,
-    contactInfo: null
+  const [data, setData] = useState(() => {
+    const cached = localStorage.getItem('portfolioData');
+    if (cached) {
+      try {
+        return JSON.parse(cached);
+      } catch (e) {
+        console.error('Failed to parse cached portfolio data');
+      }
+    }
+    return {
+      hero: null,
+      skills: [],
+      projects: [],
+      experience: [],
+      training: null,
+      education: null,
+      quote: null,
+      contactInfo: null
+    };
   });
-  const [loading, setLoading] = useState(true);
+  
+  // Set loading to true ONLY if we have no cached data. 
+  // If we have cache, we load instantly.
+  const [loading, setLoading] = useState(() => !localStorage.getItem('portfolioData'));
 
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        const [h, s, p, e, t, edu, q, c] = await Promise.all([
-          api.hero.get(),
-          api.skills.getAll(),
-          api.projects.getAll(),
-          api.experience.getAll(),
-          api.training.get(),
-          api.education.get(),
-          api.quote.get(),
-          api.contactInfo.get()
-        ]);
-        setData({
-          hero: h.data,
-          skills: s.data,
-          projects: p.data,
-          experience: e.data,
-          training: t.data,
-          education: edu.data,
-          quote: q.data,
-          contactInfo: c.data
-        });
+        const { data: bootstrapData } = await api.portfolio.bootstrap();
+        setData(bootstrapData);
+        localStorage.setItem('portfolioData', JSON.stringify(bootstrapData));
       } catch (err) {
         console.error('Error fetching portfolio data', err);
       } finally {
