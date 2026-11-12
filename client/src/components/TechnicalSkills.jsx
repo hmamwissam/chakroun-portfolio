@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Settings, Users, Code, Layout, Cpu, Shield, X, Maximize2, ExternalLink, Layers } from 'lucide-react';
 import Section from './Section';
+import { getImageUrl } from '../utils/imageUrl';
 
 const TechnicalSkills = ({ skills, projects }) => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -21,11 +22,6 @@ const TechnicalSkills = ({ skills, projects }) => {
     Shield: <Shield size={32} />
   };
 
-  const getImageUrl = (path) => {
-    if (!path) return '';
-    return path.startsWith('/uploads') ? `${import.meta.env.VITE_API_URL.replace('/api', '')}${path}` : path;
-  };
-
   return (
     <Section id="engineering" title="Expertise Technique" subtitle="Ingénierie de Précision">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20">
@@ -39,7 +35,7 @@ const TechnicalSkills = ({ skills, projects }) => {
             <Settings className="text-yellow-400" size={24} /> Compétences Techniques
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {hardSkills.map((skill, i) => (
+            {hardSkills.map((skill) => (
               <div key={skill._id} className="group flex items-center gap-3 p-3 bg-zinc-950/50 rounded-xl border border-transparent hover:border-yellow-400/20 transition-all">
                 <div className="w-2 h-2 rounded-full bg-yellow-400 group-hover:scale-150 transition-transform"></div>
                 <div>
@@ -61,7 +57,7 @@ const TechnicalSkills = ({ skills, projects }) => {
             <Users className="text-yellow-400" size={24} /> Savoir-être
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {softSkills.map((skill, i) => (
+            {softSkills.map((skill) => (
               <div key={skill._id} className="flex items-center gap-3 p-3 bg-zinc-950/50 rounded-xl border border-transparent hover:border-white/10 transition-all">
                 <span className="text-zinc-500">{skill.icon}</span>
                 <p className="text-white font-bold text-sm">{skill.name}</p>

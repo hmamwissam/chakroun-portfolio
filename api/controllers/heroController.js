@@ -1,10 +1,11 @@
 import Hero from '../models/Hero.js';
 import mongoose from 'mongoose';
 import { getFallbackData, saveFallbackData } from '../utils/dbFallback.js';
+import { clearPortfolioCache } from './portfolioController.js';
 
 export const getHero = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
+    if (mongoose.connection.readyState === 0) {
       return res.json(getFallbackData('hero'));
     }
     const hero = await Hero.findOne();
@@ -16,11 +17,13 @@ export const getHero = async (req, res) => {
 
 export const updateHero = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
+    if (mongoose.connection.readyState === 0) {
       saveFallbackData('hero', req.body);
+      clearPortfolioCache();
       return res.json(req.body);
     }
     const hero = await Hero.findOneAndUpdate({}, req.body, { upsert: true, new: true });
+    clearPortfolioCache();
     res.json(hero);
   } catch (err) {
     res.status(500).json({ message: err.message });

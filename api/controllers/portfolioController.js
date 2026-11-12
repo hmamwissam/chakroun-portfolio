@@ -20,23 +20,24 @@ export const clearPortfolioCache = () => {
 
 export const getPortfolioData = async (req, res) => {
   try {
-    const isOffline = mongoose.connection.readyState !== 1;
+    // Check if MongoDB is disconnected (0 = disconnected)
+    const isDisconnected = mongoose.connection.readyState === 0;
 
     // Use memory cache if available and within TTL
     if (cacheData && Date.now() - lastCacheTime < CACHE_TTL) {
-      res.set('Cache-Control', 'public, max-age=60, s-maxage=60');
+      res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
       return res.json(cacheData);
     }
 
     const [hero, skills, projects, experience, training, education, quote, contactInfo] = await Promise.all([
-      isOffline ? Promise.resolve(getFallbackData('hero')) : Hero.findOne(),
-      isOffline ? Promise.resolve(getFallbackData('skills')) : Skill.find().sort({ order: 1 }),
-      isOffline ? Promise.resolve(getFallbackData('projects')) : Project.find().sort({ order: 1 }),
-      isOffline ? Promise.resolve(getFallbackData('experience')) : Experience.find().sort({ order: 1 }),
-      isOffline ? Promise.resolve(getFallbackData('training')) : Training.findOne(),
-      isOffline ? Promise.resolve(getFallbackData('education')) : Education.findOne(),
-      isOffline ? Promise.resolve(getFallbackData('quote')) : Quote.findOne(),
-      isOffline ? Promise.resolve(getFallbackData('contact')) : ContactInfo.findOne()
+      isDisconnected ? Promise.resolve(getFallbackData('hero')) : Hero.findOne(),
+      isDisconnected ? Promise.resolve(getFallbackData('skills')) : Skill.find().sort({ order: 1 }),
+      isDisconnected ? Promise.resolve(getFallbackData('projects')) : Project.find().sort({ order: 1 }),
+      isDisconnected ? Promise.resolve(getFallbackData('experience')) : Experience.find().sort({ order: 1 }),
+      isDisconnected ? Promise.resolve(getFallbackData('training')) : Training.findOne(),
+      isDisconnected ? Promise.resolve(getFallbackData('education')) : Education.findOne(),
+      isDisconnected ? Promise.resolve(getFallbackData('quote')) : Quote.findOne(),
+      isDisconnected ? Promise.resolve(getFallbackData('contact')) : ContactInfo.findOne()
     ]);
 
     const responseData = {
@@ -50,12 +51,12 @@ export const getPortfolioData = async (req, res) => {
       contactInfo: contactInfo || getFallbackData('contact')
     };
 
-    if (!isOffline) {
+    if (!isDisconnected && mongoose.connection.readyState === 1) {
       cacheData = responseData;
       lastCacheTime = Date.now();
     }
 
-    res.set('Cache-Control', 'public, max-age=60, s-maxage=60');
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.json(responseData);
   } catch (err) {
     console.error('Portfolio bootstrap error:', err);

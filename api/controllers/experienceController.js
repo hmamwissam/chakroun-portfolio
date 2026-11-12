@@ -1,10 +1,11 @@
 import Experience from '../models/Experience.js';
 import mongoose from 'mongoose';
 import { getFallbackData, saveFallbackData, generateId } from '../utils/dbFallback.js';
+import { clearPortfolioCache } from './portfolioController.js';
 
 export const getExperience = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
+    if (mongoose.connection.readyState === 0) {
       return res.json(getFallbackData('experience'));
     }
     const experiences = await Experience.find().sort({ order: 1 });
@@ -16,15 +17,17 @@ export const getExperience = async (req, res) => {
 
 export const createExperience = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
+    if (mongoose.connection.readyState === 0) {
       let experience = getFallbackData('experience') || [];
       const newExp = { ...req.body, _id: generateId() };
       experience.push(newExp);
       saveFallbackData('experience', experience);
+      clearPortfolioCache();
       return res.status(201).json(newExp);
     }
     const experience = new Experience(req.body);
     await experience.save();
+    clearPortfolioCache();
     res.status(201).json(experience);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -33,17 +36,19 @@ export const createExperience = async (req, res) => {
 
 export const updateExperience = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
+    if (mongoose.connection.readyState === 0) {
       let experience = getFallbackData('experience') || [];
       const index = experience.findIndex(e => e._id === req.params.id);
       if (index !== -1) {
         experience[index] = { ...experience[index], ...req.body };
         saveFallbackData('experience', experience);
+        clearPortfolioCache();
         return res.json(experience[index]);
       }
       return res.status(404).json({ message: 'Expérience introuvable dans le profil de secours' });
     }
     const experience = await Experience.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    clearPortfolioCache();
     res.json(experience);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -52,13 +57,15 @@ export const updateExperience = async (req, res) => {
 
 export const deleteExperience = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
+    if (mongoose.connection.readyState === 0) {
       let experience = getFallbackData('experience') || [];
       const filtered = experience.filter(e => e._id !== req.params.id);
       saveFallbackData('experience', filtered);
+      clearPortfolioCache();
       return res.json({ message: 'Expérience supprimée du profil de secours' });
     }
     await Experience.findByIdAndDelete(req.params.id);
+    clearPortfolioCache();
     res.json({ message: 'Expérience supprimée' });
   } catch (err) {
     res.status(500).json({ message: err.message });

@@ -12,6 +12,7 @@ import Training from './components/Training';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import fallbackData from './data/fallbackData.json';
 
 export default function Portfolio() {
   const { scrollYProgress } = useScroll();
@@ -25,40 +26,46 @@ export default function Portfolio() {
     const cached = localStorage.getItem('portfolioData');
     if (cached) {
       try {
-        return JSON.parse(cached);
-      } catch (e) {
+        const parsed = JSON.parse(cached);
+        if (parsed && parsed.hero) return parsed;
+      } catch {
         console.error('Failed to parse cached portfolio data');
       }
     }
-    return {
-      hero: null,
-      skills: [],
-      projects: [],
-      experience: [],
-      training: null,
-      education: null,
-      quote: null,
-      contactInfo: null
-    };
+    return fallbackData;
   });
   
-  // Set loading to true ONLY if we have no cached data. 
-  // If we have cache, we load instantly.
-  const [loading, setLoading] = useState(() => !localStorage.getItem('portfolioData'));
+  // Instant render using cache or bundled fallback data (zero cold-start delay)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchAll = async () => {
       try {
         const { data: bootstrapData } = await api.portfolio.bootstrap();
-        setData(bootstrapData);
-        localStorage.setItem('portfolioData', JSON.stringify(bootstrapData));
+        if (isMounted && bootstrapData && bootstrapData.hero) {
+          setData(bootstrapData);
+          try {
+            localStorage.setItem('portfolioData', JSON.stringify(bootstrapData));
+          } catch {
+            // Storage quota exceeded or disabled in private browsing
+          }
+        }
       } catch (err) {
         console.error('Error fetching portfolio data', err);
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
+
     fetchAll();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   if (loading) {

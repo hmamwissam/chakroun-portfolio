@@ -37,6 +37,18 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
 
+// Health Check
+app.get(['/health', '/api/health'], (req, res) => {
+  const dbStates = ['disconnected', 'connected', 'connecting', 'disconnecting'];
+  const dbStatus = dbStates[mongoose.connection.readyState] || 'unknown';
+  res.status(200).json({
+    status: 'ok',
+    uptime: Math.floor(process.uptime()),
+    timestamp: new Date().toISOString(),
+    database: dbStatus
+  });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/hero', heroRoutes);

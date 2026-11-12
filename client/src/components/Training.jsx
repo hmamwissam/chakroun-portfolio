@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Award, Users, BookOpen, Shield, HelpCircle } from 'lucide-react';
 import Section from './Section';
 import ParcoursJCI from './ParcoursJCI';
+import { getImageUrl } from '../utils/imageUrl';
 
 const Training = ({ data }) => {
   const scrollRef = useRef(null);
@@ -115,7 +116,7 @@ const Training = ({ data }) => {
                   {session.image && (
                     <div className="h-56 md:h-64 overflow-hidden relative">
                       <img 
-                        src={session.image.startsWith('/uploads') ? `${import.meta.env.VITE_API_URL.replace('/api', '')}${session.image}` : session.image} 
+                        src={getImageUrl(session.image)}
                         alt={session.title} 
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
                       />
@@ -143,7 +144,8 @@ const Training = ({ data }) => {
           {data.featuredWorkshopImage && (
             <div className="absolute inset-0 -top-20 opacity-10 blur-3xl pointer-events-none">
               <img 
-                src={data.featuredWorkshopImage.startsWith('/uploads') ? `${import.meta.env.VITE_API_URL.replace('/api', '')}${data.featuredWorkshopImage}` : data.featuredWorkshopImage} 
+                src={getImageUrl(data.featuredWorkshopImage)}
+                alt={data.featuredWorkshop || 'Atelier'}
                 className="w-full h-full object-cover" 
               />
             </div>

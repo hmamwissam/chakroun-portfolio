@@ -1,7 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
 import streamifier from 'streamifier';
-import fs from 'fs/promises';
-import path from 'path';
 
 /**
  * Controller to handle image uploads to Cloudinary.

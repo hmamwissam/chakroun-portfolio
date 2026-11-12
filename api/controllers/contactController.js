@@ -1,10 +1,11 @@
 import ContactInfo from '../models/ContactInfo.js';
 import mongoose from 'mongoose';
 import { getFallbackData, saveFallbackData } from '../utils/dbFallback.js';
+import { clearPortfolioCache } from './portfolioController.js';
 
 export const getContactInfo = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
+    if (mongoose.connection.readyState === 0) {
       return res.json(getFallbackData('contact'));
     }
     const contactInfo = await ContactInfo.findOne();
@@ -16,8 +17,9 @@ export const getContactInfo = async (req, res) => {
 
 export const updateContactInfo = async (req, res) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
+    if (mongoose.connection.readyState === 0) {
       saveFallbackData('contact', req.body);
+      clearPortfolioCache();
       return res.json(req.body);
     }
     let contactInfo = await ContactInfo.findOne();
@@ -32,6 +34,7 @@ export const updateContactInfo = async (req, res) => {
       contactInfo.facebook = req.body.facebook !== undefined ? req.body.facebook : contactInfo.facebook;
     }
     await contactInfo.save();
+    clearPortfolioCache();
     res.json(contactInfo);
   } catch (err) {
     res.status(500).json({ message: err.message });
